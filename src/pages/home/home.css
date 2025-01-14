@@ -1,0 +1,773 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.slide-up {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.9s ease-out, transform 0.5s ease-out;
+}
+
+.slide-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.savenest-home {
+  display: grid;
+}
+.savenest-header {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr 0.3fr;
+  background-color: #90CAF8;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.savenest-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.savenest-logo img {
+  width: 90px;
+  height: 70px;
+}
+.savenest-link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.savenest-link .home-list {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+}
+.savenest-link .home-list .home-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 15px;
+}
+.savenest-link .home-list .home-link:hover a {
+  color: #0D47A1;
+}
+.savenest-signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.savenest-humberger {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+}
+.semi-nav {
+  width: 100%;
+  height: 25%;
+  margin-top: 68px;
+  background-color: #f9f3ed;
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.semi-nav .semi-nav-list {
+  list-style-type: none;
+}
+.semi-nav .semi-nav-list .semi-nav-link {
+  margin: 45px;
+}
+.semi-nav .semi-nav-list .semi-nav-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+.semi-nav .semi-nav-list .semi-nav-link a:hover {
+  color: #0D47A1;
+}
+Button {
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 35px;
+  background-color: #0D47A1;
+  font-weight: bold;
+  font-size: 16px;
+}
+Button:hover {
+  border: 2px solid #42A5F6;
+  color: #42A5F6;
+  background-color: white;
+  cursor: pointer;
+}
+#send-btn {
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 35px;
+  background-color: #0D47A1;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: none;
+}
+#send-btn:hover {
+  border: 2px solid #e0a96d;
+  color: #e0a96d;
+  background-color: white;
+  cursor: pointer;
+}
+.savenest-intro {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  padding: 10px;
+  margin-top: 120px;
+}
+.savenest-secone {
+  padding: 40px 0 0 80px;
+  animation: slideInleft 1s;
+  transition: 1s;
+}
+@keyframes slideInleft {
+  from {
+    transform: translateX(-400px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.savenest-secone h1 {
+  color: #0D47A1;
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.savenest-secone .respo-image {
+  display: none;
+}
+@keyframes slideInright {
+  from {
+    transform: translateX(-400px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.savenest-secone .respo-image img {
+  height: 350px;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 120px 0 120px 0;
+}
+.savenest-secone p {
+  margin-bottom: 40px;
+}
+.savenest-secone .left-arrow {
+  color: white;
+  position: absolute;
+  margin-top: -30px;
+  margin-left: 150px;
+}
+.savenest-secone:hover .left-arrow {
+  color: #0D47A1;
+}
+.savenest-sectwo {
+  display: flex;
+  justify-content: center;
+  animation: slideInright 1s;
+}
+@keyframes slideInright {
+  from {
+    transform: translateX(400px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.savenest-sectwo img {
+  height: 540px;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 120px 0 120px 0;
+}
+.savenest-home-about {
+  padding-top: 60px;
+  margin-bottom: 30px;
+}
+.savenest-home-about .home-about-header {
+  text-align: center;
+  color: #0D47A1;
+  font-size: 23px;
+}
+.savenest-home-about .par {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 25px;
+  align-items: center;
+}
+.savenest-home-about .home-about-par {
+  margin-top: 20px;
+  width: 70%;
+}
+.savenest-home-work {
+  background-color: #90CAF8;
+  padding: 25px 15px;
+  margin-top: 30px;
+}
+.savenest-home-work .hwork {
+  display: flex;
+  justify-content: center;
+  color: #0D47A1;
+  font-size: 23px;
+}
+.savenest-home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.savenest-home-cards .home-card {
+  padding: 20px;
+}
+.savenest-home-cards .home-card .home-number {
+  background-color: #0D47A1;
+  width: 12%;
+  text-align: center;
+  font-size: 17px;
+  display: flex;
+  margin-left: 60px;
+  justify-content: center;
+  color: white;
+  padding: 13px 8px;
+  border-radius: 50%;
+}
+.savenest-home-cards .home-card .home-title {
+  font-size: 20px;
+  padding: 20px 0;
+}
+.savenest-home-cards .home-card .home-description {
+  font-size: 16px;
+}
+.savenest-home-test {
+  padding: 25px 35px;
+}
+.savenest-home-test .home-test-header {
+  display: flex;
+  justify-content: center;
+  color: #0D47A1;
+  font-size: 23px;
+}
+.savenest-home-test .all-home-test {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr 0.2fr;
+  /* background-color: grey; */
+}
+.testimonial-home-intro {
+  /* width: 210%; */
+  display: flex;
+  /* background-color: red; */
+}
+.savenest-home-test .all-home-test .test-image {
+  width: 100%;
+  grid-area: "imagy";
+}
+.savenest-home-test .all-home-test .test-image img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+.savenest-home-test .all-home-test .test-descri {
+  padding: 40px 20px 20px 20px;
+  grid-area: "descri";
+}
+.savenest-home-test .all-home-test .test-descri .test-descri-para {
+  font-size: 16px;
+}
+.savenest-home-test .all-home-test .test-descri .test-descri-head {
+  font-size: 19px;
+}
+.savenest-home-test .all-home-test .test-descri .test-descri-head span {
+  color: #0D47A1;
+}
+.savenest-home-test .all-home-test .test-home-icon {
+  padding-top: 40px;
+  grid-area: "icon";
+}
+.savenest-home-test .all-home-test .test-home-icon span {
+  background-color: #0D47A1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  border-radius: 50%;
+  padding: 10px;
+  color: white;
+  margin: 10px 10px 10px 40px;
+}
+.savenest-home-contact {
+  padding: 10px 40px 40px 40px;
+}
+.savenest-home-contact .home-contact-header {
+  text-align: center;
+  color: #0D47A1;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+.savenest-home-contact .both-savenest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.contact-home-info {
+  padding: 40px;
+}
+.contact-home-info .contact-home-head {
+  color: #0D47A1;
+  margin-bottom: 30px;
+}
+.contact-home-icon span {
+  color: #e0a96d;
+  margin-right: 10px;
+  margin-top: 40px;
+  font-size: 20px;
+}
+.contact-home-info .phone-ic {
+  margin-bottom: 20px;
+}
+.contact-home-info .contact-home-data {
+  margin-bottom: 20px;
+}
+
+.contact-home-form .name,
+.phone,
+.subject {
+  margin: 10px;
+  background-color: rgb(240, 240, 240);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 13px;
+}
+.contact-home-form .name {
+  width: 45%;
+}
+.contact-home-form .phone {
+  width: 45%;
+}
+.contact-home-form .subject {
+  width: 93%;
+}
+.contact-home-form .message {
+  background-color: rgb(240, 240, 240);
+  width: 93%;
+  margin: 10px;
+  padding: 13px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.contact-home-form Button {
+  margin-left: 10px;
+}
+.savenest-footer {
+  padding-top: 20px;
+  background-color: #f9f3ed;
+  border-radius: 80px 0 0 0;
+  text-align: center;
+}
+.savenest-footer .footer-home-header {
+  color: #e0a96d;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+.savenest-footer .par-foot {
+  margin-bottom: 20px;
+}
+.savenest-footer .footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  color: #e0a96d;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+.savenest-footer .footer-icons span {
+  transition: 01s;
+}
+.savenest-footer .footer-icons span:hover {
+  transform: translateY(-4px);
+}
+.savenest-footer .footer-lists {
+  margin-bottom: 20px;
+}
+.savenest-footer .footer-lists .footer-list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  font-weight: bold;
+}
+.savenest-footer .footer-lists .footer-list .footer-link:hover {
+  color: #e0a96d;
+  cursor: pointer;
+}
+.savenest-footer .footer-right {
+  background-color: #eedecb;
+  padding: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+  .savenest-intro {
+    grid-template-columns: 1fr 0.9fr;
+    margin-bottom: 40px;
+  }
+  .savenest-home-about {
+    padding-top: 0;
+  }
+  .savenest-home-about .home-about-par {
+    font-size: 17px;
+    width: 80%;
+  }
+  .savenest-secone {
+    padding-left: 30px;
+  }
+  .savenest-secone p {
+    font-size: 17px;
+  }
+  .savenest-home-cards {
+    grid-template-columns: 0.8fr 1fr 0.85fr;
+  }
+  .savenest-home-cards .home-card .home-number {
+    padding: 10px 20px;
+  }
+  .savenest-home-cards .home-card .home-description {
+    font-size: 17px;
+  }
+  .savenest-home-test {
+    padding: 7;
+  }
+  .savenest-home-test .all-home-test {
+    grid-template-columns: 0.3fr 1fr 0.2fr;
+  }
+  .savenest-home-test .all-home-test .test-descri {
+    padding-right: 0;
+  }
+  .savenest-home-test .all-home-test .test-descri .test-descri-para {
+    font-size: 17px;
+    margin-top: 0;
+  }
+  .savenest-home-test .all-home-test .test-descri .test-descri-head {
+    font-size: 18px;
+  }
+  .savenest-home-test .all-home-test .test-image img {
+    margin-top: 20px;
+  }
+  .savenest-home-test .all-home-test .test-home-icon {
+    padding: 70px 10px 10px 10px;
+  }
+  .savenest-home-test .all-home-test .test-home-icon span {
+    width: 40%;
+    padding: 30 0px;
+  }
+  .savenest-home-contact {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  .contact-home-form .name {
+    width: 43%;
+  }
+  .contact-home-form .phone {
+    width: 43%;
+  }
+  .contact-home-form .subject {
+    width: 92%;
+  }
+  .contact-home-form input {
+    font-size: 16px;
+  }
+  .contact-home-form .message {
+    font-size: 16px;
+  }
+  .savenest-footer {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 680px) {
+  .savenest-header {
+    grid-template-columns: 1fr 0.3fr 0.2fr;
+  }
+  .savenest-humberger {
+    display: flex;
+  }
+  .savenest-link {
+    display: none;
+  }
+  .savenest-logo {
+    justify-content: flex-start;
+  }
+  .savenest-secone .respo-image {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .savenest-secone .respo-image img {
+    height: 330px;
+  }
+  .savenest-sectwo {
+    display: none;
+  }
+  .savenest-intro {
+    margin-top: 0;
+    padding-top: 0;
+    grid-template-columns: 1fr;
+  }
+  .savenest-home-about {
+    padding: 40px 0;
+  }
+  .savenest-home-about .home-about-par {
+    font-size: 17px;
+    width: 75%;
+  }
+  .savenest-home-work {
+    margin-top: 0;
+  }
+  .savenest-home-cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .savenest-home-cards .home-card .home-number {
+    padding: 20px 20px;
+  }
+  .savenest-home-test {
+    padding: 7;
+  }
+  .savenest-home-test .all-home-test {
+    grid-template-columns: 0.3fr 1fr;
+  }
+  .savenest-home-test .all-home-test .test-image img {
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+  }
+  .savenest-home-test .all-home-test .test-descri .test-descri-head {
+    padding-left: 20px;
+  }
+  .savenest-home-test .all-home-test .test-home-icon {
+    display: none;
+  }
+  .savenest-home-test .all-home-test .test-home-icon span {
+    width: 40%;
+    padding: 30 0px;
+  }
+  .savenest-home-contact .both-savenest {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    margin-bottom: 40px;
+  }
+  .contact-home-form {
+    padding-left: 10px;
+  }
+  .contact-home-form .name {
+    width: 45%;
+  }
+  .contact-home-form .phone {
+    width: 45%;
+  }
+  .contact-home-form .subject {
+    width: 93%;
+  }
+}
+@media screen and (min-width: 360px) and (max-width: 500px) {
+  .savenest-header {
+    grid-template-columns: 1fr 0.3fr 0.2fr;
+  }
+  .savenest-humberger {
+    display: flex;
+  }
+  .savenest-link {
+    display: none;
+  }
+  .savenest-logo {
+    justify-content: flex-start;
+  }
+  .savenest-secone .respo-image {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .savenest-secone .respo-image img {
+    height: 330px;
+  }
+  .savenest-sectwo {
+    display: none;
+  }
+  .savenest-intro {
+    margin-top: 0;
+    padding-top: 0;
+    grid-template-columns: 1fr;
+  }
+  .savenest-home-about {
+    padding: 40px 0;
+  }
+  .savenest-home-about .home-about-par {
+    font-size: 17px;
+    width: 80%;
+  }
+  .savenest-home-work {
+    margin-top: 0;
+  }
+  .savenest-home-cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .savenest-home-cards .home-card .home-number {
+    padding: 10px 18px;
+  }
+  .savenest-home-test {
+    padding: 7;
+  }
+  .savenest-home-test .all-home-test {
+    grid-template-columns: 0.3fr 1fr;
+  }
+  .savenest-home-test .all-home-test .test-image img {
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+  }
+  .savenest-home-test .all-home-test .test-descri .test-descri-head {
+    padding-left: 20px;
+  }
+  .savenest-home-test .all-home-test .test-home-icon {
+    display: none;
+  }
+  .savenest-home-contact .both-savenest {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    margin-bottom: 40px;
+  }
+  .contact-home-form {
+    padding-left: 10px;
+  }
+  .contact-home-form .name {
+    width: 45%;
+  }
+  .contact-home-form .phone {
+    width: 45%;
+  }
+  .contact-home-form .subject {
+    width: 93%;
+  }
+}
+@media screen and (max-width: 359px) {
+  .savenest-header {
+    grid-template-columns: 1fr 0.3fr 0.2fr;
+  }
+  .savenest-humberger {
+    display: flex;
+  }
+  .savenest-link {
+    display: none;
+  }
+  .savenest-logo {
+    justify-content: flex-start;
+  }
+  .savenest-secone .respo-image {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .savenest-secone .respo-image img {
+    height: 330px;
+  }
+  .savenest-secone p {
+    font-size: 20px;
+    line-height: 31px;
+  }
+  .savenest-sectwo {
+    display: none;
+  }
+  .savenest-intro {
+    margin-top: 0;
+    padding-top: 0;
+    grid-template-columns: 1fr;
+  }
+  .savenest-home-about {
+    padding: 40px 0;
+  }
+  .savenest-home-about .home-about-par {
+    font-size: 20px;
+    line-height: 31px;
+    width: 80%;
+  }
+  .savenest-home-work {
+    margin-top: 0;
+  }
+  .savenest-home-cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .savenest-home-cards .home-card .home-number {
+    padding: 10px 18px;
+  }
+  .savenest-home-cards .home-card .home-description {
+    font-size: 20px;
+    line-height: 31px;
+  }
+  .savenest-home-test {
+    padding: 7;
+  }
+  .savenest-home-test .all-home-test {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr;
+  }
+  .savenest-home-test .all-home-test .test-image img {
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+  }
+  .savenest-home-test .all-home-test .test-descri .test-descri-head {
+    padding-left: 10px;
+  }
+  .savenest-home-test .all-home-test .test-descri .test-descri-para {
+    font-size: 20px;
+    line-height: 31px;
+  }
+  .savenest-home-test .all-home-test .test-home-icon {
+    display: none;
+  }
+  .savenest-home-contact .both-savenest {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    margin-bottom: 40px;
+  }
+  .contact-home-info {
+    font-size: 20px;
+  }
+  .contact-home-form {
+    padding-left: 10px;
+  }
+  .contact-home-form .name {
+    width: 93%;
+    font-size: 20px;
+  }
+  .contact-home-form .phone {
+    width: 93%;
+    font-size: 20px;
+  }
+  .contact-home-form .subject {
+    width: 93%;
+    font-size: 20px;
+  }
+  .contact-home-form .message {
+    font-size: 20px;
+  }
+  .savenest-footer h1,
+  .par-foot,
+  .footer-lists .footer-icons {
+    font-size: 20px;
+    padding: 0 20px;
+  }
+}
