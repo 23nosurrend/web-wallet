@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.dashnav-container .active {
+  background-color: none;
+  color: #e0a96d;
+  padding-bottom: 5px;
+}
+.dashnav-container {
+  width: 20%;
+}
+.dashnav-container .Team {
+  background-color: #e0a96d;
+  padding: 5px 20px 5px 20px;
+  color: white;
+  border-radius: 20px;
+}
+.dashnav-container span {
+  font-size: 25px;
+  color: #e0a96d;
+}
+.dashnav-container .sidebar a h3:hover {
+  background-color: white;
+  padding: 5px 20px 5px 20px;
+  border: 2px solid #e0a96d;
+  border-radius: 20px;
+  color: #e0a96d;
+}
