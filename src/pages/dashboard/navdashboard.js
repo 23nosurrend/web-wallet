@@ -65,14 +65,14 @@ function Navdashboard() {
                 <div className="myaccount-nav">
                   <ul className="myaccount-nav-list">
                     <li className="myaccount-nav-link">
-                      <Link to="/addincome"> Add Incomes</Link>
+                      <Link to="/addmomo"> Mobile Account</Link>
                     </li>
                     <li className="myaccount-nav-link">
-                      <Link to="/addexpense"> Add Expenses</Link>
+                      <Link to="/addcash"> Cash Account</Link>
                     </li>
 
                     <li className="myaccount-nav-link">
-                      <Link to="/balance">Balance</Link>
+                      <Link to="/budget">Balance</Link>
                     </li>
                     <li className="myaccount-nav-link"></li>
                   </ul>
@@ -83,7 +83,7 @@ function Navdashboard() {
               <span className="sideIcons">
                 <GiStairsGoal />
               </span>
-              <Link to="/setgoal">
+              <Link to="/transaction">
                 <h3 className="goalSection">Goals</h3>
               </Link>
             </a>
@@ -106,7 +106,7 @@ function Navdashboard() {
                       <Link to="/expenses">Expense</Link>
                     </li>
                     <li className="record-nav-link">
-                      <Link to="/goals">Goals</Link>
+                      <Link to="/transaction">Transaction</Link>
                     </li>
                     {/* <li className="record-nav-link">
                       <Link to="/currentbalance">Balance</Link>

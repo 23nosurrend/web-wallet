@@ -1,0 +1,109 @@
+.goal-navbar {
+  background-color: white;
+  width: 100%;
+  display: grid;
+}
+.goal-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.6fr;
+}
+.goal-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* background-color: #0D47A1;
+box-shadow: 0 0 1px #90CAF8; */
+
+.goal-list .goal-link:hover {
+  color: #0D47A1;
+}
+.goal-setgoal {
+  height: 100vh;
+}
+.goal-setgoal .setgoal-header {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25px;
+  color: #0D47A1;
+}
+.formAll {
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goal-setgoal .form-setgoal {
+  padding: 25px 40px 40px 40px;
+}
+.goal-setgoal .form-setgoal input {
+  box-shadow: 5px 5px 5px #918f8f;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  margin-bottom: 20px;
+  color: black;
+}
+.goal-setgoal .form-setgoal textarea {
+  box-shadow: 5px 5px 5px #918f8f;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  margin-bottom: 20px;
+}
+.viewgoalAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  background-color: rgb(235, 235, 235);
+}
+.viewgoal-search {
+  margin-bottom: 20px;
+}
+.viewgoal-search input {
+  box-shadow: 2px 2px 2px #918f8f;
+  margin-right: 20px;
+  padding: 10px;
+  width: 90%;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  margin-bottom: 20px;
+  color: black;
+}
+.viewgoal-page {
+  height: 620px;
+}
+.viewgoal-page th {
+  padding: 10px 20px;
+  background-color: #90CAF8;
+}
+.viewgoal-page td {
+  padding: 10px 20px;
+}
+.form-setgoal #goal-btn {
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 35px;
+  background-color: #0D47A1;
+  font-weight: bold;
+  font-size: 16px;
+  width: 15%;
+  box-shadow: none;
+}
+.form-setgoal #goal-btn:hover {
+  border: 2px solid #0D47A1;
+  color: #0D47A1;
+  background-color: white;
+  cursor: pointer;
+}

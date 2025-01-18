@@ -1,0 +1,58 @@
+.addnew {
+  /* background-color: rgb(27, 62, 218); */
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: #90CAF8;
+}
+.addnew .addexpense {
+  margin-top: 150px;
+  text-align: center;
+}
+.addnew .addexpense input {
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 5px 5px 5px #918f8f;
+  height: 40px;
+  width: 400px;
+  border: 1px solid #d9d9d9;
+  outline: none;
+}
+.addnew .addexpense h2 {
+  display: flex;
+  justify-content: center;
+  color: #0D47A1;
+  font-weight: bold;
+}
+.addnew .addexpense input:hover {
+  box-shadow: none;
+}
+
+.containerAddexpense .dashboard-cont .accountsection {
+  background-color: #90CAF8;
+  padding: 5px 20px 5px 20px;
+  color: white;
+  border-radius: 20px;
+}
+.containerAddexpense .dashboard-cont .sub-titlenav:hover .accountsection {
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid #0D47A1;
+}
+.addexpense #expense-btn {
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 30px;
+  background-color: #0D47A1;
+  font-weight: bold;
+  font-size: 16px;
+  width: 24%;
+  box-shadow: none;
+}
+.addexpense #expense-btn:hover {
+  border: 2px solid #0D47A1;
+  color: #0D47A1;
+  background-color: white;
+  cursor: pointer;
+}

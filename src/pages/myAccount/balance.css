@@ -1,0 +1,75 @@
+.balance-page {
+  display: grid;
+  grid-template-rows: 0.6fr 0.8fr 0.2fr 1fr;
+  height: 100vh;
+  background-color: #90CAF8;
+}
+.balance-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.balance-description .balance-intro {
+  width: 70%;
+  color: #0D47A1;
+  font-weight: bold;
+  font-size: 20px;
+}
+.balance-amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.balance-amount .balance-par {
+  font-size: 30px;
+  font-weight: bold;
+}
+.balance-amount .balance-par span {
+  color: #0D47A1;
+}
+.balance-btn {
+  display: flex;
+  justify-content: center;
+}
+.balance-show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.balance-show form input {
+  box-shadow: 5px 5px 5px #918f8f;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  margin-bottom: 20px;
+  color: black;
+}
+.containerBalanceSec .dashboard-cont .accountsection {
+  background-color: #90CAF8;
+  padding: 5px 20px 5px 20px;
+  color: white;
+  border-radius: 20px;
+}
+.containerBalanceSec .dashboard-cont .sub-titlenav:hover .accountsection {
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid #90CAF8;
+}
+.balance-form-btn #balance-btn {
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 35px;
+  background-color: #0D47A1;
+  font-weight: bold;
+  font-size: 16px;
+  width: 45%;
+  box-shadow: none;
+}
+.balance-form-btn #balance-btn:hover {
+  border: 2px solid #0D47A1;
+  color: #0D47A1;
+  background-color: white;
+  cursor: pointer;
+}
