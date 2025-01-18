@@ -118,8 +118,8 @@ Button:hover {
   box-shadow: none;
 }
 #send-btn:hover {
-  border: 2px solid #e0a96d;
-  color: #e0a96d;
+  border: 2px solid #0D47A1;
+  color: #0D47A1;
   background-color: white;
   cursor: pointer;
 }
