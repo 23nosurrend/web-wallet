@@ -22,10 +22,9 @@ const Signin = () => {
 
   let post = async (body) => {
     try {
-       navigate("/dashboard");
       const response = await fetch(
 
-        `${BASE_URL}/api/v1/user/login`,
+        `${BASE_URL}/admin/login`,
 
         {
           method: "POST",
@@ -38,17 +37,22 @@ const Signin = () => {
       // .then((response) => response.json())
       // .then((rep) => {
       const rep = await response.json();
-      console.log(rep.message); // Handle the response as per your application's requirements
-      toast.success(rep.message, {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1000,
-        theme: "colored",
-      });
+      console.log(rep.data.message);
+      alert(rep.data.message)
+      // toast.success(rep.message, {
+      //   position: toast.POSITION.TOP_RIGHT,
+      //   autoClose: 1000,
+      //   theme: "colored",
+      // });
       console.log("response is", response);
 
       if (response.ok) {
-        localStorage.setItem("logedIn", data.Email);
+        alert(rep.data.message)
+        localStorage.setItem("logedIn",rep.data.token);
         navigate("/dashboard");
+      } else {
+        alert(rep.data.message)
+         navigate("/signin.js");
       }
       // alert(rep.message);
       return response;
@@ -59,26 +63,28 @@ const Signin = () => {
 
   const handleSubmits = (e) => {
     e.preventDefault();
-    // if (data.Email.trim() === "") {
-    //   return toast.error("please fill all information", {
-    //     position: toast.POSITION.BOTTOM_LEFT,
-    //     autoClose: false,
-    //     theme: "colored",
-    //   });
-    // } else if (data.Password.trim() === "") {
-    //   return toast.error("please fill all information", {
-    //     position: toast.POSITION.BOTTOM_LEFT,
-    //     autoClose: false,
-    //     theme: "colored",
-    //   });
-    // }
+    if (data.Email.trim() === "") {
+      alert("Please fill all information")
+      // return toast.error("please fill all information", {
+      //   position: toast.POSITION.BOTTOM_LEFT,
+      //   autoClose: false,
+      //   theme: "colored",
+      // });
+    } else if (data.Password.trim() === "") {
+      alert("Please fill all information")
+      // return toast.error("please fill all information", {
+      //   position: toast.POSITION.BOTTOM_LEFT,
+      //   autoClose: false,
+      //   theme: "colored",
+      // });
+    }
     setData({
       Email: "",
       Password: "",
     });
     post(data);
     console.log(data);
-    console.log("hello");
+
   };
   return (
     <div>
@@ -125,7 +131,7 @@ const Signin = () => {
             <p>
               To keep connected with us please Sign in with your personal info.
             </p>
-            <a href="../dashboard/index.js">SIGN UP</a>
+            <a href="./signup.js">SIGN UP</a>
           </div>
         </div>
       </div>

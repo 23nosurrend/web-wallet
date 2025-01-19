@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import DashboardLayout from "../../componet/DashboardLayout";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,81 +12,79 @@ function Balance() {
     setShow(!show);
   };
 
-  const [data, setData] = useState({
-    email: "",
-    amount: "",
-  });
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setData({ ...data, [name]: value });
-  };
-
-  const [balValue, setBalValue] = useState(
-    localStorage.getItem("balValue") || "0"
-  );
-  let post = async (body) => {
+const [budgetAmount, setBudgetAmount] = useState(0);
+const [newBudget, setNewBudget] = useState('');
+  const fetchBudget = async () => {
     try {
-      const response = await fetch(
-
-        `${BASE_URL}/api/v1/user/transfer`,
-
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+      const token = localStorage.getItem('logedIn');
+      const response = await fetch(`${BASE_URL}/budget/read`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
         }
-      )
-        .then((response) => response.json())
-        .then((rep) => {
-          console.log(rep); // Handle the response as per your application's requirements
-          toast.success(rep, {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 1000,
-            theme: "colored",
-          });
-          // setBalValue(rep);
-          // console.log(balValue);
-
-          setBalValue(rep); // Update balValue state with the response value
-          // localStorage.setItem("balValue", rep); // Store balValue in localStorage
-          console.log(balValue);
-        });
-      return response;
+      });
+      
+      const data = await response.json();
+      console.log('budget response:', data);
+      
+      if (data.status === "success") {
+        setBudgetAmount(data.data.momo.amount);
+      }
     } catch (error) {
-      console.log(error);
+      console.error('Budget fetch error:', error);
     }
   };
+  const handleUpdateBudget = async () => {
+        try {
+            const amount = parseFloat(newBudget);
+            
+            // Validate amount
+            if (isNaN(amount) || amount < 0) {
+                toast.error('Please enter a valid positive number');
+                return;
+            }
 
-  const handleBalance = (e) => {
-    e.preventDefault();
+            const token = localStorage.getItem('logedIn');
+            const response = await fetch(`${BASE_URL}/budget/update`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount })
+            });
 
-    if (data.email.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.amount.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    }
+            const data = await response.json();
 
-    //     post(data);
-    // console.log(data);
-    localStorage.setItem("balValue",parseInt(localStorage.getItem("balValue"))+parseInt(data.amount));
-    setBalValue(parseInt(localStorage.getItem("balValue")))
-    setData({
-      email: "",
-      amount: "",
-    });
+            if (data.status === "success") {
+                toast.success('Budget account updated successfully');
+                setBudgetAmount(amount);
+                fetchBudget(); 
+            } else {
+                toast.error(data.data.message || 'Failed to update amount');
+            }
+        } catch (error) {
+            console.error('Update error:', error);
+            toast.error('Failed to update Budget account');
+        }
+    };
 
-  };
+  useEffect(() => {
+    
+     
+      fetchBudget();
+
+  
+      
+      const interval = setInterval(() => {
+      
+        fetchBudget();
+      
+      }, 30000);
+  
+      return () => clearInterval(interval);
+    }, []);
+
 
   return (
     <div className="containerBalanceSec">
@@ -100,7 +98,7 @@ function Balance() {
           </div>
           <div className="balance-amount">
             <p className="balance-par">
-              Amount: <span id="totalbalance">{balValue}</span>
+              Amount: <span id="totalbalance">{budgetAmount}</span>
             </p>
           </div>
           <div className="balance-btn">
@@ -114,24 +112,19 @@ function Balance() {
                 <form>
                   <input
                     type="number"
-                    placeholder="Amount to be saved"
+                    placeholder={budgetAmount}
                     name="amount"
-                    onChange={handleChange}
-                    value={data.amount}
+                    onChange={(e) => setNewBudget(e.target.value)}
+                            min="0"
+                            step="0.01"
+              value={newBudget}
                   />
                   <br />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    name="email"
-                    onChange={handleChange}
-                    value={data.email}
-                  />
                   <input
                     type="submit"
                     value="SET"
                     id="balance-btn"
-                    onClick={handleBalance}
+                    onClick={handleUpdateBudget}
                   />
                 </form>
               </div>

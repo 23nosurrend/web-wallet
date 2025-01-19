@@ -35,7 +35,7 @@ function Navdashboard() {
               <span className="sideIcons">
                 <MdDashboard />
               </span>{" "}
-              <Link to="/dashhome">
+              <Link to="/dashboard">
                 <h2>Dashboard</h2>
               </Link>
             </a>

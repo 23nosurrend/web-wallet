@@ -6,13 +6,14 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import BASE_URL from "../../API";
 
+
+
 function Signup() {
   const name = "SIGN UP";
   const navigate = useNavigate();
 
   const [data, setData] = useState({
-    Firstname: "",
-    Lastname: "",
+   
     Username: "",
     Email: "",
     Password: "",
@@ -27,7 +28,7 @@ function Signup() {
     try {
       const response = await fetch(
 
-        `${BASE_URL}/api/v1/user/signup`,
+        `${BASE_URL}/admin/signup`,
 
         {
           method: "POST",
@@ -40,16 +41,18 @@ function Signup() {
       // .then((response) => response.json())
       // .then((rep) => {
       const rep = await response.json();
-      console.log(rep.message); // Handle the response as per your application's requirements
-      toast.success(rep.message, {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1000,
-        theme: "colored",
-      });
-      if (response.ok) {
+      alert(rep.data.message)
+      // console.log(rep.message); // Handle the response as per your application's requirements
+      // toast.success(rep.message, {
+      //   position: toast.POSITION.TOP_RIGHT,
+      //   autoClose: 1000,
+      //   theme: "colored",
+      // });
+
+      if (rep.status==="success") {
         navigate("/signin.js");
       }
-      navigate("/signup.js");
+    
       // });
       return response;
     } catch (error) {
@@ -60,40 +63,29 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (data.Firstname.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.Lastname.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.Username.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
+    if (data.Username.trim() === "") {
+      alert("fil information ")
+      // return toast.error("please fill all information", {
+      //   position: toast.POSITION.BOTTOM_RIGHT,
+      //   autoClose: false,
+      //   theme: "colored",
+      // });
     } else if (data.Email.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
+      alert('Fill all information')
+      // return toast.error("please fill all information", {
+      //   position: toast.POSITION.BOTTOM_RIGHT,
+      //   autoClose: false,
+      //   theme: "colored",
+      // });
     } else if (data.Password.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
+      alert("fil information ")
+      // return toast.error("please fill all information", {
+      //   position: toast.POSITION.BOTTOM_RIGHT,
+      //   autoClose: false,
+      //   theme: "colored",
+      // });
     }
     setData({
-      Firstname: "",
-      Lastname: "",
       Username: "",
       Email: "",
       Password: "",
@@ -118,22 +110,7 @@ function Signup() {
             <h1>CREATE ACCOUNT</h1>
             <form method="post">
               <div className="signup-name">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  name="Firstname"
-                  onChange={handleChange}
-                  value={data.Firstname}
-                />
-                <br />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  name="Lastname"
-                  onChange={handleChange}
-                  value={data.Lastname}
-                />
-                <br />
+               
               </div>
               <input
                 type="text"
