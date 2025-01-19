@@ -13,7 +13,6 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import DashboardLayout from "../../componet/DashboardLayout";
 const Index = () => {
 
-   const navigate = useNavigate();
   const [cashAmount, setCashAmount] = useState(0);
   const [momoAmount, setMomoAmount] = useState(0);
   const [budgetAmount, setBudgetAmount] = useState(0);

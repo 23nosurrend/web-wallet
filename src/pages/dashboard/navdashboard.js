@@ -31,15 +31,15 @@ function Navdashboard() {
             </div>
           </div>
           <div className="sidebar">
-            <a href="#" className="active">
+            <div  className="active">
               <span className="sideIcons">
                 <MdDashboard />
               </span>{" "}
               <Link to="/dashboard">
                 <h2>Dashboard</h2>
               </Link>
-            </a>
-            <a href="#" className="sub-titlenav">
+            </div>
+            <div className="sub-titlenav">
               <span className="sideIcons">
                 {" "}
                 <AiFillHome />
@@ -47,8 +47,8 @@ function Navdashboard() {
               <Link to="/">
                 <h3>Home</h3>
               </Link>
-            </a>
-            <a href="#" className="sub-titlenav">
+            </div>
+            <div className="sub-titlenav">
               <span className="sideIcons">
                 <MdAccountBox />
               </span>
@@ -78,16 +78,16 @@ function Navdashboard() {
                   </ul>
                 </div>
               )}
-            </a>
-            <a href="#" className="sub-titlenav">
+            </div>
+            <div className="sub-titlenav">
               <span className="sideIcons">
                 <GiStairsGoal />
               </span>
               <Link to="/transaction">
                 <h3 className="goalSection">Transaction</h3>
               </Link>
-            </a>
-            <a href="#" className="sub-titlenav">
+            </div>
+            <div className="sub-titlenav">
               <span className="sideIcons">
                 <VscRecordKeys />
               </span>
@@ -114,21 +114,21 @@ function Navdashboard() {
                   </ul>
                 </div>
               )}
-            </a>
-            <a href="#" className="sub-titlenav">
+            </div>
+            <div className="sub-titlenav">
               <span className="sideIcons">
                 <AiFillSetting />
               </span>
               <h3>Settings</h3>
-            </a>
+            </div>
 
             <div className="logout">
-              <a href="#" className="sub-titlenav">
+              <div className="sub-titlenav">
                 <span className="sideIcons">
                   <TbLogout />
                 </span>
                 <h3>Logout</h3>
-              </a>
+              </div>
             </div>
           </div>
         </aside>
