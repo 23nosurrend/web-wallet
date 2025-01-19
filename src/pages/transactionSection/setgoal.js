@@ -103,13 +103,13 @@ function Setgoal() {
     console.log("hello");
   };
   return (
-    <div className="containerGoals">
+    <div className="containerGoals" >
       <DashboardLayout>
         <Goalnav />
         <div className="formAll">
           <div className="goal-setgoal">
             <h1 className="setgoal-header">
-              Set Your Goals. Achieve Your Dreams. Complete the fields below to
+              Record your transaction. Achieve Your Dreams. Complete the fields below to
               get started on your path to success.
             </h1>
 

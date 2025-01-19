@@ -4,7 +4,7 @@ import "./dashboardlayout.css";
 
 function DashboardLayout({ children }) {
   return (
-    <div className="dashboardlay">
+    <div className="dashboardlay" >
       <Navdashboard />
       <div>{children}</div>
     </div>

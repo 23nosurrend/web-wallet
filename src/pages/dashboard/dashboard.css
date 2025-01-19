@@ -259,7 +259,7 @@ aside .sidebar a {
 }
 .insight svg circle {
   fill: #ffff;
-  stroke: #e0a96d;
+  stroke: #90CAF8;
   stroke-width: 10;
   stroke-linecap: round;
   transform: translate(5px, 5px);
@@ -314,7 +314,7 @@ aside .sidebar a {
 }
 .numbers {
   padding-left: 200px;
-  color: #ffa800;
+  color: #90CAF8;
   margin-top: -10px;
 }
 .income .middle h5 {

@@ -72,7 +72,7 @@ function Navdashboard() {
                     </li>
 
                     <li className="myaccount-nav-link">
-                      <Link to="/budget">Balance</Link>
+                      <Link to="/budget">Budget</Link>
                     </li>
                     <li className="myaccount-nav-link"></li>
                   </ul>
@@ -84,7 +84,7 @@ function Navdashboard() {
                 <GiStairsGoal />
               </span>
               <Link to="/transaction">
-                <h3 className="goalSection">Goals</h3>
+                <h3 className="goalSection">Transaction</h3>
               </Link>
             </a>
             <a href="#" className="sub-titlenav">
