@@ -19,7 +19,7 @@ function Viewgoal() {
     });
 
   return (
-    <div className="containerViewgoal">
+    <div className="containerViewgoal" style={{backgroundColor:'red'}}>
       <DashboardLayout>
         <div>
           <Goalnav />
