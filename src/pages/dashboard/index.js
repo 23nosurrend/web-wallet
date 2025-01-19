@@ -2,11 +2,7 @@ import React,{useState,useEffect} from "react";
 import "../dashboard/dashboard.css";
 import { Link } from "react-router-dom";
 import BASE_URL from "../../API";
-import { useNavigate } from "react-router";
-// import Joining from "../../componet/joining";
-// import logo1 from "../dashboard/images/logo1.png";
-// import logo2 from "../dashboard/images/logo2.jpg"
-// import {GrMenu} from 'react-icons/gr'
+
 
 import { BsEmojiLaughing } from "react-icons/bs";
 import { AiOutlineArrowRight } from "react-icons/ai";

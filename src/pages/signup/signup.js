@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./signup.css";
-import { ToastContainer, toast, Flip } from "react-toastify";
+import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
