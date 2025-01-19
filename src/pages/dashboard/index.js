@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "../dashboard/dashboard.css";
 import { Link } from "react-router-dom";
+import BASE_URL from "../../API";
+import { useNavigate } from "react-router";
 // import Joining from "../../componet/joining";
 // import logo1 from "../dashboard/images/logo1.png";
 // import logo2 from "../dashboard/images/logo2.jpg"
@@ -10,6 +12,90 @@ import { BsEmojiLaughing } from "react-icons/bs";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import DashboardLayout from "../../componet/DashboardLayout";
 const Index = () => {
+
+   const navigate = useNavigate();
+  const [cashAmount, setCashAmount] = useState(0);
+  const [momoAmount, setMomoAmount] = useState(0);
+  const [budgetAmount, setBudgetAmount] = useState(0);
+
+  const fetchCash = async () => {
+    try {
+      const token = localStorage.getItem('logedIn');
+      const response = await fetch(`${BASE_URL}/cash/read`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      const data = await response.json();
+      console.log('Cash response:', data);
+      
+      if (data.status === "success") {
+        setCashAmount(data.data.cash.amount);
+      }
+    } catch (error) {
+      console.error('Cash fetch error:', error);
+    }
+  };
+
+  const fetchMomo = async () => {
+    try {
+      const token = localStorage.getItem('logedIn');
+      const response = await fetch(`${BASE_URL}/momo/read`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      const data = await response.json();
+      console.log('Momo response:', data);
+      
+      if (data.status === "success") {
+        setMomoAmount(data.data.momo.amount);
+      }
+    } catch (error) {
+      console.error('Momo fetch error:', error);
+    }
+  };
+
+  const fetchBudget = async () => {
+    try {
+      const token = localStorage.getItem('logedIn');
+      const response = await fetch(`${BASE_URL}/budget/read`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      const data = await response.json();
+      console.log('Budget response:', data);
+      
+      if (data.status === "success") {
+        setBudgetAmount(data.data.budget.amount);
+      }
+    } catch (error) {
+      console.error('Budget fetch error:', error);
+    }
+  };
+
+  useEffect(() => {
+  
+    fetchCash();
+    fetchMomo();
+    fetchBudget();
+
+ 
+    const interval = setInterval(() => {
+      fetchCash();
+      fetchMomo();
+      fetchBudget();
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <DashboardLayout>
       <div className="dash-container">
@@ -27,13 +113,13 @@ const Index = () => {
                   <div className="message">
                     <p>
                       {" "}
-                      Start savings as a team. Our platform offers seamless
-                      collaboration featu- res for collective saving.
+                      Start recording your transaction. Our platform offers seamless
+                      collaboration featu- res for transaction record keeping.
                     </p>
 
                     <p>What are you waiting of join our team now!</p>
 
-                    <Link to="/Dash2">
+                    <Link>
                       <button className="join-btn">
                         Join team <AiOutlineArrowRight />
                       </button>
@@ -48,14 +134,14 @@ const Index = () => {
                 <div className="income">
                   <div className="middle">
                     <div className="left">
-                      <h3>Income</h3>
-                      <h2>0.0</h2>
+                      <h3>Cash account</h3>
+                      <h2>{cashAmount} Rwf</h2>
                     </div>
 
                     <div className="numbers">
                       <p>0%</p>
                     </div>
-                    <h5>Compared to($1500 last month)</h5>
+                    <h5>Update Account as you like</h5>
                   </div>
                 </div>
               </div>
@@ -63,14 +149,14 @@ const Index = () => {
                 <div className="income">
                   <div className="middle">
                     <div className="left">
-                      <h3>Expenses</h3>
-                      <h2>0.0</h2>
+                      <h3>Mobile Account </h3>
+                      <h2>{ momoAmount} Rwf</h2>
                     </div>
 
                     <div className="numbers">
                       <p>0%</p>
                     </div>
-                    <h5>Compared to($1500 last month)</h5>
+                    <h5>Update Account as you like</h5>
                   </div>
                 </div>
               </div>
@@ -78,20 +164,19 @@ const Index = () => {
             <div className="par-child3">
               <div className="balance">
                 <div className="updates">
-                  <h2>Balance</h2>
+                  <h2>Budget</h2>
 
-                  <h3>0</h3>
+                  <h3>{budgetAmount} Rwf</h3>
 
                   <div className="message">
                     <span>
                       <b>
-                        Congratulations <BsEmojiLaughing />
+                        Respect your budget <BsEmojiLaughing />
                       </b>
                     </span>
 
                     <p>
-                      Accordingly to the last, you work well but try to increase
-                      your saving money inorder to your complete goal!!{" "}
+                      To achive your goal you should spend strickly based on your budget{" "}
                     </p>
                   </div>
                 </div>
