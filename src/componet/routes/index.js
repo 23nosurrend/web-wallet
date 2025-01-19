@@ -6,10 +6,10 @@ import Signin from "../../pages/signup/signin";
 import Dashboard from "../../pages/dashboard/index";
 import Addcash from "../../pages/addcash/Addcash";
 import Addmomo from "../../pages/income/addmomo";
-import Addbudget from "../../pages/addbudget/Addbudget"
+// import Addbudget from "../../pages/addbudget/Addbudget"
 import Budget from "../../pages/myAccount/balance";
 import Transaction from "../../pages/transactionSection/setgoal"
-import ViewTransaction from "../../pages/session-record/recordgoal"
+// import ViewTransaction from "../../pages/session-record/recordgoal"
 import TransactionHistory from "../../pages/transactionSection/viewgoal"
 
 
