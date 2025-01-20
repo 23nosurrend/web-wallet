@@ -35,7 +35,7 @@ function Navdashboard() {
               <span className="sideIcons">
                 <MdDashboard />
               </span>{" "}
-              <Link to="/dashboard">
+              <Link to="/dashboard" className="customLink-dash">
                 <h2>Dashboard</h2>
               </Link>
             </div>
@@ -44,11 +44,18 @@ function Navdashboard() {
                 {" "}
                 <AiFillHome />
               </span>
-              <Link to="/">
+              <Link to="/" >
                 <h3>Home</h3>
               </Link>
             </div>
-            <div className="sub-titlenav">
+            <a href="# " className="sub-titlenav"
+              onClick={(e) => {
+    e.preventDefault();
+    setAccountlist(!accountlist);
+  }}
+            
+            
+            >
               <span className="sideIcons">
                 <MdAccountBox />
               </span>
@@ -78,7 +85,7 @@ function Navdashboard() {
                   </ul>
                 </div>
               )}
-            </div>
+            </a>
             <div className="sub-titlenav">
               <span className="sideIcons">
                 <GiStairsGoal />

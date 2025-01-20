@@ -129,6 +129,9 @@ aside .sidebar a {
   transition: all 300s ease;
   /* background-color: #E0A96D; */
 }
+
+
+
 .dashboard-cont .sidebar .active {
   color: #90CAF8;
   border:1px solid black;
