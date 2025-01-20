@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import "./signin.css";
 // import '../dashboard/index.js'
 import BASE_URL from "../../API";
@@ -52,7 +53,7 @@ const Signin = () => {
         navigate("/dashboard");
       } else {
         alert(rep.data.message)
-         navigate("/signin.js");
+         navigate("/signin");
       }
       // alert(rep.message);
       return response;
@@ -131,7 +132,8 @@ const Signin = () => {
             <p>
               To keep connected with us please Sign in with your personal info.
             </p>
-            <a href="./signup.js">SIGN UP</a>
+              <Link to="/signup" className="custom-link">SIGN UP</Link>
+           
           </div>
         </div>
       </div>

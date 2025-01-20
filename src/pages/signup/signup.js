@@ -50,7 +50,7 @@ function Signup() {
       // });
 
       if (rep.status==="success") {
-        navigate("/signin.js");
+        navigate("/signin");
       }
     
       // });
@@ -102,7 +102,9 @@ function Signup() {
             <p>
               Please enter your Registration details, and start journey with us.
             </p>
-            <a href="./signin.js">SIGN IN</a>
+          <Link to="/signin" className="custom-link">Sign In</Link>
+
+           
           </div>
         </div>
         <div className="signup-container-two">

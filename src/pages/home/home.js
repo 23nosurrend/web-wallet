@@ -138,7 +138,7 @@ function Home() {
           </ul>
         </div>
         <div className="savenest-signin">
-          <Link to="/signup.js">
+          <Link to="/signup">
             <Button btnName="SignUp"></Button>
           </Link>
         </div>

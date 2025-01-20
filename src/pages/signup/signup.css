@@ -23,7 +23,7 @@
   padding: 10px 30px 60px 30px;
   font-size: 17px;
 }
-.signup-content-one a {
+.custom-link{
   text-decoration: none;
   color: white;
   border: 2px solid white;
