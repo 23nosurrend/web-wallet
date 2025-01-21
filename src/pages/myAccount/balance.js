@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "./balance.css";
 import BASE_URL from "../../API";
 
+
 function Balance() {
   const [show, setShow] = useState(true);
   const toggleHiddenSection = () => {
@@ -109,24 +110,40 @@ const [newBudget, setNewBudget] = useState('');
           {!show && (
             <div className="balance-show">
               <div className="balance-form-btn">
-                <form>
-                  <input
+                
+                <input
+                 
                     type="number"
                     placeholder={budgetAmount}
                     name="amount"
                     onChange={(e) => setNewBudget(e.target.value)}
                             min="0"
                             step="0.01"
-              value={newBudget}
+                  value={newBudget}
+                  style={{
+                    width: '200px',
+                    height: "40px",
+                    fontSize: "20px",
+                    marginBottom:"10px"
+                  }}
+                  
                   />
-                  <br />
-                  <input
-                    type="submit"
-                    value="SET"
-                    id="balance-btn"
-                    onClick={handleUpdateBudget}
-                  />
-                </form>
+                <br />
+                <button
+                  style={{display:'flex',justifyContent:'center'}}
+                  type="button"              
+                  id="balance-btn"
+                  
+    onClick={(e) => {
+      e.preventDefault(); // Prevent form submission
+      handleUpdateBudget(); // Call the budget update function
+                  }}
+                  
+  >
+    SET
+  </button>
+                 
+                
               </div>
             </div>
           )}

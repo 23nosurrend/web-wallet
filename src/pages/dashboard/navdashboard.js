@@ -9,7 +9,7 @@ import { GiStairsGoal } from "react-icons/gi";
 // import { VscRecordKeys } from "react-icons/vsc";
 
 // import { AiFillSetting } from "react-icons/ai";
-import { TbLogout } from "react-icons/tb";
+// import { TbLogout } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -119,12 +119,12 @@ function Navdashboard() {
     
   }}
             >
-              <div className="sub-titlenav">
+              {/* <div className="sub-titlenav">
                 <span className="sideIcons">
                   <TbLogout />
                 </span>
                 <h3>Logout</h3>
-              </div>
+              </div> */}
             </a>
           </div>
         </aside>
