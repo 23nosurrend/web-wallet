@@ -1,23 +1,63 @@
+### Name
 
-
-## Name
 Web Wallet
-## Hosting services
-Frontend:netlify
-backend:render
-## Functionalities
- ### Step one 
-  Use have to craete and account vy clciking on signup button 
-  ### Step Two 
-  User have to log in using teh same credentials 
-  ### Step Three 
-  BY deafult after login user will go to dashboard which will ahve default wallets 
-    cash wallet 
-    Mobile wallet
-    BUdget records 
-   ### Step Three
-   ON the left side user have to click on MY account Nav , where dropdown will be shown 
-   cash wallet ,mobile wallet , and budget .
-   ### Step Four 
-   User can spcify which wallet he want to top up by clicking on it 
-   then write amount in input and clcik save button below ,this will update specified account 
+
+### Hosting Services
+
+Frontend: NetlifyBackend: Render
+
+Functionalities
+
+#### Step One: Create an Account
+
+Users can create an account by clicking on the Sign Up button on the homepage.
+
+#### Step Two: Log In
+
+After creating an account, users can log in using the same credentials.
+
+#### Step Three: Dashboard
+
+Upon logging in, users are redirected to the Dashboard.
+
+The dashboard includes default wallets:
+
+Cash Wallet
+
+Mobile Wallet
+
+Budget Records
+
+#### Step Four: Access Wallets and Budget
+
+On the left-hand side of the dashboard, users will find a My Account navigation menu.
+
+Clicking on My Account reveals a dropdown with:
+
+Cash Wallet
+
+Mobile Wallet
+
+Budget
+
+#### Step Five: Update Wallets
+
+Users can select the wallet they want to top up (Cash or Mobile Wallet) by clicking on it under My accounts
+
+Enter the desired amount in the input field and click the Save button below to update the selected wallet.
+
+#### Step Six: Set Budget
+
+Users can specify their budget by accessing the Budget section. By going Under My account section and choose budget 
+
+Enter the budget amount and click Set to save the record.
+
+#### Step Seven: Perform Transactions
+
+Users can perform transactions between wallets.By going to transactio section on left sidde ,(Create Transaction)
+
+After a transaction, the remaining amount in the wallet is updated automatically.
+
+#### Step Eight: Visualize Transactions
+
+Users can view all their transactions, filtered by the logged-in user, in the transaction history section of the dashboard.
