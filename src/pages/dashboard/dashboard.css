@@ -132,12 +132,24 @@ aside .sidebar a {
 
 
 
-.dashboard-cont .sidebar .active {
+/* .dashboard-cont .sidebar .active {
   color: #90CAF8;
   border:1px solid black;
   border-radius: 20px;
   text-align: center;
+} */
+#customLink-dash{
+  display: flex;
+  font-weight: bold;
+    color: black;
+    margin: 10px;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    transition: all 300s ease;
 }
+
 
 .sidebar .sub-titlenav:hover h3 {
   color: #90CAF8;
@@ -151,6 +163,9 @@ aside .sidebar a {
   color: #90CAF8;
 }
 .active h2 {
+  color: black;
+}
+.active h2:hover {
   color: #90CAF8;
 }
 .sidebar a:hover {
@@ -423,7 +438,7 @@ table tbody tr:last-child td {
   cursor: pointer;
 }
 .containerGoals .dashboard-cont .goalSection {
-  background-color: #e0a96d;
+  background-color: #90CAF8;
   padding: 5px 20px 5px 20px;
   color: white;
   border-radius: 20px;
@@ -431,7 +446,7 @@ table tbody tr:last-child td {
 .containerGoals .dashboard-cont .sub-titlenav:hover .goalSection {
   background-color: white;
   border-radius: 20px;
-  border: 1px solid #e0a96d;
+  border: 1px solid #90CAF8;
 }
 .containerViewgoal .dashboard-cont .goalSection {
   background-color: #e0a96d;

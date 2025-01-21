@@ -9,10 +9,10 @@ const Goal = () => {
       <div className="goal-navbar">
         <ul className="goal-list">
           <Link to="/transaction">
-            <li className="goal-link">Create Goals</li>
+            <li className="goal-link">Create Transaction</li>
           </Link>
           <Link to="/viewtransaction">
-            <li className="goal-link">View Goals</li>
+            <li className="goal-link">Transaction History </li>
           </Link>
           <li className="goal-link">
             <IoMdNotifications />

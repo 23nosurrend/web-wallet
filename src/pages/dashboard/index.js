@@ -4,15 +4,17 @@ import { Link } from "react-router-dom";
 import BASE_URL from "../../API";
 
 
+
 import { BsEmojiLaughing } from "react-icons/bs";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import DashboardLayout from "../../componet/DashboardLayout";
+import TransactionList from "../transactionSection/transactionlist.js";
 const Index = () => {
 
   const [cashAmount, setCashAmount] = useState(0);
   const [momoAmount, setMomoAmount] = useState(0);
   const [budgetAmount, setBudgetAmount] = useState(0);
-
+ const token = localStorage.getItem('logedIn');
   const fetchCash = async () => {
     try {
       const token = localStorage.getItem('logedIn');
@@ -182,7 +184,9 @@ const Index = () => {
             <div className="par-child4">
               {/* <h2>Activities of Year</h2> */}
               <div className="recent-month">
-                <table>
+                <TransactionList token={token}></TransactionList>
+                
+                {/* <table>
                   <thead>
                     <tr>
                       <th>Month</th>
@@ -229,7 +233,7 @@ const Index = () => {
                       <td>1500</td>
                     </tr>
                   </tbody>
-                </table>
+                </table> */}
               </div>
             </div>
             <div className="par-child1">

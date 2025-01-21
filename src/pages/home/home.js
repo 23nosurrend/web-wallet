@@ -171,7 +171,7 @@ function Home() {
             <img src={Image} alt="images" />
           </div>
           <p>
-            Welcome to SaveNest! We provide a convenient way for saving, whether
+            Welcome to Web-Wallet! We provide a convenient way for saving, whether
             you're an individual or want to be part of a team. Our user-friendly
             interface allows for easy organization and retrieval of your saved
             pages. But that's not all we also offer collaborative features for
@@ -284,7 +284,7 @@ function Home() {
                 <span>
                   <MdMarkEmailUnread />
                 </span>
-                savenest@gmail.com
+                webwallet@gmail.com
               </p>
             </div>
           </div>
@@ -334,7 +334,7 @@ function Home() {
         </div>
       </div>
       <div className="savenest-footer">
-        <h1 className="footer-home-header">SaveNest</h1>
+        <h1 className="footer-home-header">WebWallet</h1>
         <p className="par-foot">
           Start saving and secure your financial future. Our saving website is
           here to help <br /> you achieve your money-saving goals.
@@ -360,7 +360,7 @@ function Home() {
             <li className="footer-link">Connect</li>
           </ul>
         </div>
-        <div className="footer-right">@2023 Savenest | All Rights Reserved</div>
+        <div className="footer-right">@2024 WebWallet | All Rights Reserved</div>
       </div>
     </div>
   );

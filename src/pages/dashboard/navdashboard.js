@@ -6,14 +6,15 @@ import { MdDashboard } from "react-icons/md";
 import { AiFillHome } from "react-icons/ai";
 import { MdAccountBox } from "react-icons/md";
 import { GiStairsGoal } from "react-icons/gi";
-import { VscRecordKeys } from "react-icons/vsc";
-import { AiFillSetting } from "react-icons/ai";
+// import { VscRecordKeys } from "react-icons/vsc";
+
+// import { AiFillSetting } from "react-icons/ai";
 import { TbLogout } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 
 function Navdashboard() {
-  const [list, setList] = useState(false);
+
   const [accountlist, setAccountlist] = useState(false);
   return (
     <div>
@@ -31,15 +32,20 @@ function Navdashboard() {
             </div>
           </div>
           <div className="sidebar">
-            <div  className="active">
+            <div  className="active" id="customLink-dash">
               <span className="sideIcons">
                 <MdDashboard />
               </span>{" "}
-              <Link to="/dashboard" className="customLink-dash">
+              <Link to="/dashboard" >
                 <h2>Dashboard</h2>
               </Link>
             </div>
-            <div className="sub-titlenav">
+            <a href="# " className="sub-titlenav"
+             onClick={(e) => {
+    e.preventDefault();
+   
+  }}
+            >
               <span className="sideIcons">
                 {" "}
                 <AiFillHome />
@@ -47,7 +53,7 @@ function Navdashboard() {
               <Link to="/" >
                 <h3>Home</h3>
               </Link>
-            </div>
+            </a>
             <a href="# " className="sub-titlenav"
               onClick={(e) => {
     e.preventDefault();
@@ -86,57 +92,40 @@ function Navdashboard() {
                 </div>
               )}
             </a>
-            <div className="sub-titlenav">
+            <a href="# " className="sub-titlenav"
+             onClick={(e) => {
+    e.preventDefault();
+    
+  }}
+            >
               <span className="sideIcons">
                 <GiStairsGoal />
               </span>
               <Link to="/transaction">
                 <h3 className="goalSection">Transaction</h3>
               </Link>
-            </div>
-            <div className="sub-titlenav">
-              <span className="sideIcons">
-                <VscRecordKeys />
-              </span>
-              <h3 className="recordSection">Record</h3>
-              <div className="record-sectionone">
-                {!list && <IoIosArrowDown onClick={() => setList(true)} />}
-                {list && <IoIosArrowDown onClick={() => setList(false)} />}
-              </div>
-              {list && (
-                <div className="record-nav">
-                  <ul className="record-nav-list">
-                    <li className="record-nav-link">
-                      <Link to="/recording">Income</Link>
-                    </li>
-                    <li className="record-nav-link">
-                      <Link to="/expenses">Expense</Link>
-                    </li>
-                    <li className="record-nav-link">
-                      <Link to="/transaction">Transaction</Link>
-                    </li>
-                    {/* <li className="record-nav-link">
-                      <Link to="/currentbalance">Balance</Link>
-                    </li> */}
-                  </ul>
-                </div>
-              )}
-            </div>
-            <div className="sub-titlenav">
+            </a>
+            
+            {/* <div className="sub-titlenav">
               <span className="sideIcons">
                 <AiFillSetting />
               </span>
               <h3>Settings</h3>
-            </div>
+            </div> */}
 
-            <div className="logout">
+            <a href="# " className="logout"
+             onClick={(e) => {
+    e.preventDefault();
+    
+  }}
+            >
               <div className="sub-titlenav">
                 <span className="sideIcons">
                   <TbLogout />
                 </span>
                 <h3>Logout</h3>
               </div>
-            </div>
+            </a>
           </div>
         </aside>
       </div>

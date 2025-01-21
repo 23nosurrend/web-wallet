@@ -377,7 +377,7 @@ Button:hover {
 }
 .savenest-footer {
   padding-top: 20px;
-  background-color: #f9f3ed;
+  background-color: #90CAF8;
   border-radius: 80px 0 0 0;
   text-align: center;
 }
@@ -393,7 +393,7 @@ Button:hover {
   display: flex;
   justify-content: center;
   gap: 40px;
-  color: #e0a96d;
+  color: #0D47A1;
   margin-bottom: 15px;
   font-size: 20px;
 }
@@ -414,11 +414,11 @@ Button:hover {
   font-weight: bold;
 }
 .savenest-footer .footer-lists .footer-list .footer-link:hover {
-  color: #e0a96d;
+  color: #0D47A1;
   cursor: pointer;
 }
 .savenest-footer .footer-right {
-  background-color: #eedecb;
+  background-color: #90CAF8;
   padding: 15px;
 }
 

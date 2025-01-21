@@ -7,13 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 import BASE_URL from "../../API";
 
 function Setgoal() {
-  const [data, setData] = useState({
-    Title: "",
-    startTime: "",
-    endTime: "",
-    Email: "",
+  const [selectedWallet, setSelectedWallet] = useState(''); 
+  const handleWalletChange = (e) => {
+  setSelectedWallet(e.target.value);
+};
+   const [data, setData] = useState({
+    walletType: "",
     amount: "",
-    detailsGoals: "",
   });
   const handleChange = (e) => {
     const name = e.target.name;
@@ -23,90 +23,71 @@ function Setgoal() {
 
   let post = async (body) => {
     try {
+      const token = localStorage.getItem('logedIn');
+       if (!selectedWallet || !data.amount) {
+      toast.error("Please select wallet type and enter amount");
+      return;
+    }
       const response = await fetch(
 
-        `${BASE_URL}/api/v1/setGoal`,
+        `${BASE_URL}/transaction/create`,
 
         {
           method: "POST",
           headers: {
+             'Authorization': `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify({
+            walletType:selectedWallet,
+            amount: Number(data.amount)
+          }),
         }
       )
-        .then((response) => response.json())
-        .then((rep) => {
-          console.log(rep.message); // Handle the response as per your application's requirements
-          toast.success(rep.message, {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 1000,
-            theme: "colored",
-          });
+       const rep = await response.json();
+      if (response.ok) {
+      if (rep.status === "success") {
+        toast.success(rep.data.message);
+        setData({
+          walletType: "",
+          amount: ""
         });
-      return response;
+        setSelectedWallet("");
+      }
+    } else {
+    
+      toast.error(rep.data.message || "Transaction failed");
+    }
     } catch (error) {
       console.log(error);
     }
   };
 
+
   const handleSetgoal = (e) => {
     e.preventDefault();
 
-    if (data.Title.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.startTime.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.endTime.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.amount.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.Email.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    } else if (data.detailsGoals.trim() === "") {
-      return toast.error("please fill all information", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: false,
-        theme: "colored",
-      });
-    }
-    setData({
-      Title: "",
-      startTime: "",
-      endTime: "",
-      Email: "",
-      amount: "",
-      detailsGoals: "",
-    });
-    post(data);
+    if (!selectedWallet) {
+    toast.error("Please select a wallet type");
+    return;
+  }
+
+  if (!data.amount || data.amount <= 0) {
+    toast.error("Please enter a valid amount");
+    return;
+  }
+    post();
     console.log(data);
-    console.log("hello");
+  
   };
   return (
     <div className="containerGoals" >
       <DashboardLayout>
         <Goalnav />
         <div className="formAll">
+          <div style={{ margin: '10px 0' }}>
+ 
+</div>
           <div className="goal-setgoal">
             <h1 className="setgoal-header">
               Record your transaction. Achieve Your Dreams. Complete the fields below to
@@ -114,52 +95,41 @@ function Setgoal() {
             </h1>
 
             <div className="form-setgoal">
+               <label>Select Wallet Type: </label>
+  <select 
+    value={selectedWallet} 
+    onChange={handleWalletChange}
+    style={{ 
+      padding: '8px', 
+      width: '200px',
+      marginLeft: '10px',
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+      marginBottom:"10px"
+    }}
+  >
+    <option value="">Choose wallet type</option>
+    <option value="cash">Cash Wallet</option>
+    <option value="momo">Mobile Money</option>
+    {/* <option value="BANK">Bank Account</option>
+    <option value="CREDIT_CARD">Credit Card</option>
+    <option value="SAVINGS">Savings Account</option> */}
+              </select>
+              <br/>
               <input
-                type="text"
-                placeholder="Title"
-                name="Title"
-                onChange={handleChange}
-                value={data.Title}
-              />
-              <br />
-              <input
-                type="text"
-                placeholder="Starting Time"
-                name="startTime"
-                onChange={handleChange}
-                value={data.startTime}
-              />
-              <br />
-              <input
-                type="text"
-                placeholder="Ending Time"
-                name="endTime"
-                onChange={handleChange}
-                value={data.endTime}
-              />
-              <br />
-              <input
-                type="text"
-                placeholder="Amount Required"
+                type="number"
+                placeholder="Write to spend in number "
                 name="amount"
                 onChange={handleChange}
                 value={data.amount}
               />
               <br />
-              <input
-                type="email"
-                placeholder="Your Email"
-                name="Email"
-                onChange={handleChange}
-                value={data.Email}
-              />
-              <br />
               <textarea
                 placeholder="Details Goals"
                 rows="7"
-                name="detailsGoals"
+                name="Write the reason of spending fro better transaction record keeping"
                 onChange={handleChange}
-                value={data.detailsGoals}
+                value={data.transactiondetails}
               ></textarea>
               {/* <Button btnName="SAVE" onClick={handleSetgoal}></Button> */}
               <input

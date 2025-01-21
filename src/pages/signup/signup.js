@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./signup.css";
-import { ToastContainer, Flip } from "react-toastify";
+import { ToastContainer,toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -18,6 +18,7 @@ function Signup() {
     Email: "",
     Password: "",
   });
+  const [loading,setLoading]=useState(false)
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -26,6 +27,7 @@ function Signup() {
 
   let post = async (body) => {
     try {
+      setLoading(true)
       const response = await fetch(
 
         `${BASE_URL}/admin/signup`,
@@ -38,25 +40,29 @@ function Signup() {
           body: JSON.stringify(data),
         }
       );
-      // .then((response) => response.json())
-      // .then((rep) => {
+    
       const rep = await response.json();
-      alert(rep.data.message)
-      // console.log(rep.message); // Handle the response as per your application's requirements
-      // toast.success(rep.message, {
-      //   position: toast.POSITION.TOP_RIGHT,
-      //   autoClose: 1000,
-      //   theme: "colored",
-      // });
+      setLoading(false)
+      
+      
 
-      if (rep.status==="success") {
-        navigate("/signin");
+      if (response.ok) {
+        toast.success(rep.data.message)
+        setTimeout(() => {
+           navigate("/signin");
+        },3000)
+       
+      } else {
+        toast.error(rep.data.message)
+        navigate("/signup")
       }
     
-      // });
+      
       return response;
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -64,26 +70,14 @@ function Signup() {
     e.preventDefault();
 
     if (data.Username.trim() === "") {
-      alert("fil information ")
-      // return toast.error("please fill all information", {
-      //   position: toast.POSITION.BOTTOM_RIGHT,
-      //   autoClose: false,
-      //   theme: "colored",
-      // });
+      toast.info("fil information ")
+      
     } else if (data.Email.trim() === "") {
-      alert('Fill all information')
-      // return toast.error("please fill all information", {
-      //   position: toast.POSITION.BOTTOM_RIGHT,
-      //   autoClose: false,
-      //   theme: "colored",
-      // });
+      toast.info('Fill all information')
+    
     } else if (data.Password.trim() === "") {
-      alert("fil information ")
-      // return toast.error("please fill all information", {
-      //   position: toast.POSITION.BOTTOM_RIGHT,
-      //   autoClose: false,
-      //   theme: "colored",
-      // });
+      toast.info("fil information ")
+     
     }
     setData({
       Username: "",
@@ -140,15 +134,17 @@ function Signup() {
               <br />
               <br />
 
-              <Link to="/dashboard">
-                {" "}
+             
+              
                 <input
                   type="submit"
                   value={name}
                   id="signup-btn"
                   onClick={handleSubmit}
+                  disabled={loading}
                 />
-              </Link>
+         
+              {loading && <div className="loader">Loading...</div>}
 
               <ToastContainer
                 transition={Flip}

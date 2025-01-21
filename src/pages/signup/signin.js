@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ const Signin = () => {
     Email: "",
     Password: "",
   });
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -23,6 +24,7 @@ const Signin = () => {
 
   let post = async (body) => {
     try {
+        setLoading(true);
       const response = await fetch(
 
         `${BASE_URL}/admin/login`,
@@ -35,49 +37,41 @@ const Signin = () => {
           body: JSON.stringify(data),
         }
       );
-      // .then((response) => response.json())
-      // .then((rep) => {
+      
       const rep = await response.json();
       console.log(rep.data.message);
-      alert(rep.data.message)
-      // toast.success(rep.message, {
-      //   position: toast.POSITION.TOP_RIGHT,
-      //   autoClose: 1000,
-      //   theme: "colored",
-      // });
+     
+    
       console.log("response is", response);
 
       if (response.ok) {
-        alert(rep.data.message)
-        localStorage.setItem("logedIn",rep.data.token);
-        navigate("/dashboard");
+        toast.success(rep.data.message)
+        localStorage.setItem("logedIn", rep.data.token);
+        setTimeout(()=>{
+          navigate("/dashboard");
+        },2000)
+        
       } else {
-        alert(rep.data.message)
+        toast.error(rep.data.message)
          navigate("/signin");
       }
       // alert(rep.message);
       return response;
     } catch (error) {
       console.log(error);
+    }finally {
+      setLoading(false); 
     }
   };
 
   const handleSubmits = (e) => {
     e.preventDefault();
     if (data.Email.trim() === "") {
-      alert("Please fill all information")
-      // return toast.error("please fill all information", {
-      //   position: toast.POSITION.BOTTOM_LEFT,
-      //   autoClose: false,
-      //   theme: "colored",
-      // });
+      toast.error("Please fill all information")
+    
     } else if (data.Password.trim() === "") {
-      alert("Please fill all information")
-      // return toast.error("please fill all information", {
-      //   position: toast.POSITION.BOTTOM_LEFT,
-      //   autoClose: false,
-      //   theme: "colored",
-      // });
+      toast.error("Please fill all information")
+     
     }
     setData({
       Email: "",
@@ -110,10 +104,7 @@ const Signin = () => {
             />
             <br />
             <div className="check-container">
-              {/* <div className="check">
-                <input type="checkbox" name="agree" id="check" />
-                <label>Remember me</label>
-              </div> */}
+              
               <div className="forget">
                 <a href="g">Forgot Password?</a>
               </div>
@@ -123,7 +114,9 @@ const Signin = () => {
               value={name}
               id="Signin-btn"
               onClick={handleSubmits}
+              disabled={loading}
             />
+            {loading && <div className="loader">Loading...</div>}
           </div>
         </div>
         <div className="Signin-container-one">

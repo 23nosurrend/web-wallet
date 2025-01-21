@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import Goalnav from "./goalNav";
 import DashboardLayout from "../../componet/DashboardLayout";
 import { BsSearch } from "react-icons/bs";
-import BASE_URL from "../../API";
+
+import TransactionList from "./transactionlist";
 
 function Viewgoal() {
-  const [viewgoals, setViewgoals] = useState([]);
-
-
-  fetch(`${BASE_URL}/api/v1/readgoal`)
-
-    .then((res) => res.json())
-    .then((data) => {
-      setViewgoals(data.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  const token = localStorage.getItem('logedIn');
+  
 
   return (
     <div className="containerViewgoal" style={{backgroundColor:'red'}}>
@@ -30,27 +21,8 @@ function Viewgoal() {
                 <BsSearch />
               </div>
               <div className="viewgoal-table">
-                <table cellSpacing={1} border={0}>
-                  <tr>
-                    <th>Title</th>
-                    <th>Starting Time</th>
-                    <th>Ending Time</th>
-                    <th>Amount Required</th>
-                    <th>Goal Details</th>
-                    {/* <th>Email</th> */}
-                  </tr>
-                  {viewgoals &&
-                    viewgoals.map((row) => (
-                      <tr>
-                        <td>{row.Title}</td>
-                        <td>{row.startTime}</td>
-                        <td>{row.endTime}</td>
-                        <td>{row.amount}</td>
-                        <td>{row.detailsGoals}</td>
-                        {/* <td>{row.Email}</td> */}
-                      </tr>
-                    ))}
-                </table>
+                      <TransactionList token={token}></TransactionList>
+               
               </div>
             </div>
           </div>
